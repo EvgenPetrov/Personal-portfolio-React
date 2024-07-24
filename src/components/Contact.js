@@ -26,20 +26,29 @@ export const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setButtonText("Sending...");
-        let response = await fetch("http://localhost:5000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(formDetails),
-        });
-        setButtonText("Send");
-        let result = await response.json();
-        setFormDetails(formInitialDetails);
-        if (result.code === 200) {
-            setStatus({ succes: true, message: "Message sent successfully" });
-        } else {
-            setStatus({ succes: false, message: "Something went wrong, please try again later." });
+
+        try {
+            let response = await fetch("http://localhost:5000/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                },
+                body: JSON.stringify(formDetails),
+            });
+
+            let result = await response.json();
+
+            setButtonText("Send");
+            setFormDetails(formInitialDetails);
+            if (result.code === 200) {
+                setStatus({ success: true, message: "Message sent successfully" });
+            } else {
+                setStatus({ success: false, message: "Something went wrong, please try again later." });
+            }
+        } catch (error) {
+            console.error("Fetch error:", error); // Логирование ошибок fetch
+            setButtonText("Send");
+            setStatus({ success: false, message: "Something went wrong, please try again later." });
         }
     };
 
@@ -72,7 +81,7 @@ export const Contact = () => {
                                             <Col size={12} sm={6} className="px-1">
                                                 <input
                                                     type="text"
-                                                    value={formDetails.lasttName}
+                                                    value={formDetails.lastName}
                                                     placeholder="Last Name"
                                                     onChange={(e) => onFormUpdate("lastName", e.target.value)}
                                                 />

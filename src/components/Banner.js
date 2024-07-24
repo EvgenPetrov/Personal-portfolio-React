@@ -55,7 +55,7 @@ const Banner = () => {
                         <span className="tagline">Welcome to my portfolio</span>
                         <h1>
                             {`Hi! I'm Evgeny`} <br />
-                            <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer"]'>
+                            <span className="txt-rotate" data-period="1000" data-rotate='[ "Web Developer"]'>
                                 <span className="wrap">{text}</span>
                             </span>
                         </h1>
