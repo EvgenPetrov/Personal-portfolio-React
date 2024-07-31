@@ -64,10 +64,10 @@ const NavBar = () => {
                                 <a href="https://www.linkedin.com/in/petrove/" target="_blank" rel="noopener noreferrer">
                                     <img src={navIcon1} alt="" />
                                 </a>
-                                <a href="!#" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.facebook.com/profile.php?id=100093864750913" target="_blank" rel="noopener noreferrer">
                                     <img src={navIcon2} alt="" />
                                 </a>
-                                <a href="!#" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/cedrum_/ " target="_blank" rel="noopener noreferrer">
                                     <img src={navIcon3} alt="" />
                                 </a>
                             </div>
